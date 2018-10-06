@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html>
+<head></head>
+<title>CHOOSE</title>
+<style>
+		* {margin:0; padding:0;}
+
+      #ttt {width: 2px; height:20px; 
+         background: gray; border-radius:50%; 
+         position: absolute; 
+         animation: drop 10s infinite; 
+         }
+
+         @keyframes drop{
+            from{ margin-top: 0; }
+            to{margin-top: 400px;}
+         }
+
+ 
+
+	#crush {width: 474px; height: 387px; position: absolute; top: 25%; left: 35%; }
+	#choice {position: absolute; left: 30%; top: 64%; z-index:1;}
+
+	#hogam {position: absolute; left: 30%; top: 64%;}
+	#cute {width:301px; height: 351px; position: absolute; top: 28%; left:40%; opacity: 0;}
+	#ub {position: absolute; top: 5%; left: 23%; opacity: 0;}
+	  
+
+
+   </style>
+
+<body>
+
+   <div id="ttt"></div>
+   
+
+   <img id="ub" src="ub.png">
+   <img id="cute" src="cute.png">
+   <img id="crush" src= "crush.png">
+   <img id="choice" src="choice.png" onclick="a()">
+   <img id="hogam" src="hogam.png">
+   <audio id="thankyou" src="thankyou.mp3"></audio>
+
+
+
+
+
+   <script type="text/javascript">
+      var total = 0;
+      for(var i=0;i<100;i++){
+
+         var j = document.getElementById("ttt");
+         var newttt = j.cloneNode(true);
+         newttt.style.left = Math.random()*window.innerWidth + "px";
+         newttt.style.top = Math.random()*window.innerHeight + "px";
+         newttt.style.animationDuration = Math.random()+"s";
+         newttt.style.background = randomColor();
+         document.body.appendChild(newttt);
+         
+      }
+
+         function randomColor(){
+            var a = Math.random()*100;
+            var b = Math.random()*100;
+            var c = Math.random()*100;
+            var text = "rgb("+a+","+b+","+c+")";
+            return text;
+         }
+
+        
+
+
+
+         var i = 0;
+	 	function a(){
+	 		i += 1;
+			if(i%2==0){
+	 			choice.style.opacity= 1;
+	 			hogam.style.opacity= 0;
+	 			crush.style.opacity=1;
+	 			cute.style.opacity=0;
+	 			ub.style.opacity=0;
+	 			}
+
+	 			else if(i%2 == 1){
+	 			choice.style.opacity=0;
+	 			hogam.style.opacity= 1;
+	 			crush.style.opacity=0;
+	 			cute.style.opacity=1;
+	 			ub.style.opacity=1;
+	 				thankyou.play();
+	 			}
+	 		
+	 		};
+        </script>
+
+</body>
+</html>
